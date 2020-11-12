@@ -33,7 +33,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Language" Version="$(VSEditorNugetVersion)" />
     <PackageReference Include="Microsoft.VisualStudio.Composition" Version="16.1.8" />
     <PackageReference Include="Microsoft.VisualStudio.Threading" Version="16.3.13" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="2.2.33" PrivateAssets="all" />
+    <!-- we don't want Nerdbank.GitVersioning to set build variables when this is built
+    as a submodule of VSMac -->
+    <!--<PackageReference Include="Nerdbank.GitVersioning" Version="2.2.33" PrivateAssets="all" />-->
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(BaseEditorPath)..\FPF\PresentationCore\System.Windows.DataFormats.cs" />
