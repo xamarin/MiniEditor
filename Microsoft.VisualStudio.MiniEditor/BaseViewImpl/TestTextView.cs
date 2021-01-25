@@ -87,7 +87,7 @@ namespace Microsoft.VisualStudio.Text.Editor.Implementation
 		{
 			ITextSnapshot snapshot = TextBuffer.CurrentSnapshot;
 			int topLine = 0;
-			int bottomLine = Math.Min (snapshot.LineCount - 1, 20);
+			int bottomLine = snapshot.LineCount - 1;
 
 			var lines = new TestTextViewLineCollection (this);
 			for (int i = topLine; i <= bottomLine; i++) {
@@ -169,7 +169,7 @@ namespace Microsoft.VisualStudio.Text.Editor.Implementation
 
         public IBufferGraph BufferGraph => _factoryService.BufferGraphFactoryService.CreateBufferGraph (_textBuffer);
 
-		public IViewScroller ViewScroller => throw new NotImplementedException ();
+		public IViewScroller ViewScroller => TestViewScroller.Instance;
 
 		public double ViewportBottom => ViewportTop + ViewportHeight;
 
@@ -222,6 +222,8 @@ namespace Microsoft.VisualStudio.Text.Editor.Implementation
 		}
 
 		public void QueueSpaceReservationStackRefresh () => throw new NotImplementedException ();
+
+		public IViewSynchronizationManager SynchronizationManager { get; set; }
 		#endregion
 
 		public ITextViewLine GetTextViewLineContainingBufferPosition (SnapshotPoint bufferPosition)

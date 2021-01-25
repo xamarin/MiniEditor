@@ -8,7 +8,7 @@
     <SignAssembly>true</SignAssembly>
     <PublicSign>true</PublicSign>
     <AssemblyOriginatorKeyFile>..\public.snk</AssemblyOriginatorKeyFile>
-    <VSEditorNugetVersion>16.4.66</VSEditorNugetVersion>
+    <VSEditorNugetVersion>16.6.255</VSEditorNugetVersion>
   </PropertyGroup>
   <PropertyGroup>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -31,11 +31,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Text.Logic" Version="$(VSEditorNugetVersion)" />
     <PackageReference Include="Microsoft.VisualStudio.Text.UI" Version="$(VSEditorNugetVersion)" />
     <PackageReference Include="Microsoft.VisualStudio.Language" Version="$(VSEditorNugetVersion)" />
-    <PackageReference Include="Microsoft.VisualStudio.Composition" Version="16.1.8" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="16.3.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Composition" Version="16.4.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="16.7.56" />
     <!-- we don't want Nerdbank.GitVersioning to set build variables when this is built
     as a submodule of VSMac -->
     <!--<PackageReference Include="Nerdbank.GitVersioning" Version="2.2.33" PrivateAssets="all" />-->
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(BaseEditorPath)..\FPF\PresentationCore\System.Windows.DataFormats.cs" />
@@ -104,6 +105,8 @@
     <Compile Include="$(BaseEditorPath)Text\Def\TextUI\Adornments\XPlat*.cs" />
     <Compile Include="$(BaseEditorPath)Text\Def\TextUI\Adornments\ToolTipService\IToolTipPresenter2.cs" />
     <Compile Include="$(BaseEditorPath)Text\Def\TextUI\Editor\ITextView3.cs" />
+    <Compile Include="$(BaseEditorPath)Text\Def\TextUI\Editor\IViewSynchronizationManager.cs" />
+    <Compile Include="$(BaseEditorPath)Text\Def\TextUI\EditorOptions\InternalOptions.cs" />
     <Compile Include="$(BaseEditorPath)Text\Def\TextUI\Formatting\ITextViewLineSource.cs" />
     <Compile Include="$(BaseEditorPath)Text\Def\TextUI\Operations\IEditorOperations4.cs" />
     <Compile Include="$(BaseEditorPath)Text\Def\TextUI\Utilities\IStatusBarService.cs" />
